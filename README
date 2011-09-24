@@ -1,0 +1,11 @@
+VhkArduino - A library with various reoccuring Arduino stuff.
+
+As the description states, this library contains some stuff that keeps
+returning in a lot of Arduino projects. Also it will contains a lot of
+handy functions that will be very usefull while writing sketches.
+
+At the time of writing it only contains a software implementation of 
+timers, but this library will grow with all kinds of features in the
+future.
+
+For licence information, see LICENCE.
