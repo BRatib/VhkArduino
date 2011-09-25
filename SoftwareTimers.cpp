@@ -6,17 +6,35 @@
 
 #include "SoftwareTimers.h"
 
-bool AckTimer::isArmed() { return armed; };
+bool AckTimer::isArmed() {
+	return armed;
+};
 
-void AckTimer::disarm() { armed = false; };
+void AckTimer::disarm() {
+	armed = false;
+};
 
 void AckTimer::set(uint32_t ms) {
 	armed = true;
 	MilliSecondTimer::set(ms);
 };
 
+bool MicroSecondTimer::expired() {
+	return Timer32::expired(micros());
+};
+
+uint32_t MicroSecondTimer::remaining() {
+	return Timer32::remaining(micros());
+};
+
+void MicroSecondTimer::set(uint32_t us) {
+	Timer32::set(us, micros());
+};
+
 // True if timer has expired.
-bool MilliSecondTimer::expired() { return Timer32::expired(millis()); };
+bool MilliSecondTimer::expired() {
+	return Timer32::expired(millis());
+};
 
 // Return the time remaining on the timer.
 uint32_t MilliSecondTimer::remaining() {

@@ -21,6 +21,16 @@ public:
 	void set(uint32_t duration, uint32_t now);
 };
 
+class MicroSecondTimer : public Timer32 {
+public:
+	MicroSecondTimer() {};
+	MicroSecondTimer(uint32_t us) { set(us); };
+	
+	bool expired();
+	uint32_t remaining();
+	void set(uint32_t us);
+};
+
 class MilliSecondTimer : public Timer32 {
 public:
 	MilliSecondTimer() {};
