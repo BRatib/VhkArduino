@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map VhkArduino
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Timer32	KEYWORD1
+MicroSecondTimer	KEYWORD1
+MilliSecondTimer	KEYWORD1
+AckTimer	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+disarm	KEYWORD2
+expired	KEYWORD2
+isArmed	KEYWORD2
+remaining	KEYWORD2
+set	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################

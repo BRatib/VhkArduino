@@ -24,6 +24,7 @@ void AckTimer::disarm() {
 
 /**
  * Arms the timer and sets the timer to expire ms Milliseconds from now.
+ * @param ms should be > 0 since a delay of 0 ms makes no sense!.
  */
 void AckTimer::set(uint32_t ms) {
 	armed = true;
@@ -48,6 +49,7 @@ uint32_t MicroSecondTimer::remaining() {
 
 /**
  * Sets the timer to expire us microseconds from now.
+ * @param us should be > 0 since a delay of 0 us makes no sense!.
  */
 void MicroSecondTimer::set(uint32_t us) {
 	Timer32::set(us, micros());
@@ -71,6 +73,7 @@ uint32_t MilliSecondTimer::remaining() {
 
 /**
  * Sets the timer to expire ms milliseconds from now.
+ * @param ms should be > 0 since a delay of 0 ms makes no sense!.
  */
 void MilliSecondTimer::set(uint32_t ms) {
 	Timer32::set(ms, millis());
@@ -81,7 +84,7 @@ void MilliSecondTimer::set(uint32_t ms) {
  * @return True if the timer has expired, otherwise false.
  */
 bool Timer32::expired(uint32_t now) {
-	return now < setTime ? (now - delay) >= setTime : now >= (setTime + delay);
+	return now >= (setTime + delay);
 };
 
 /**
@@ -89,11 +92,13 @@ bool Timer32::expired(uint32_t now) {
  * @return the number of time units remaining untill expiration or 0 if the timer has expired.
  */
 uint32_t Timer32::remaining(uint32_t now) {
-	return expired(now) ? 0 : setTime - (now - delay);
+	//return expired(now) ? 0 : setTime - (now - delay);
+	return expired(now) ? 0 : (setTime + delay) - now;
 };
 
 /**
  * Sets the timer to expire a given number of time units from now.
+ * @param duration should be > 0 since a delay of 0 makes no sense!.
  */
 void Timer32::set(uint32_t duration, uint32_t now) {
 	setTime = now; delay = duration;
