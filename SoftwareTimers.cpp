@@ -92,7 +92,6 @@ bool Timer32::expired(uint32_t now) {
  * @return the number of time units remaining untill expiration or 0 if the timer has expired.
  */
 uint32_t Timer32::remaining(uint32_t now) {
-	//return expired(now) ? 0 : setTime - (now - delay);
 	return expired(now) ? 0 : (setTime + delay) - now;
 };
 

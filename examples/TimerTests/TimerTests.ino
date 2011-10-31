@@ -60,9 +60,11 @@ void setup() {
 	
 	Serial.println(F("\nAckTimer Test"));
 	at.set(100);
-	Serial.print(F("at Armed: ")); Serial.println(at.isArmed());
+	Serial.print(F("at Armed: ")); Serial.print(at.isArmed());
+	Serial.print(F(" at epired: ")); Serial.println(at.expired());
 	delay(at.remaining());
-	Serial.print(F("at Armed: ")); Serial.println(at.isArmed());
+	Serial.print(F("at Armed: ")); Serial.print(at.isArmed());
+	Serial.print(F(" at epired: ")); Serial.println(at.expired());
 	
 	at.set(100);
 	Serial.print(F("at Armed: ")); Serial.println(at.isArmed());

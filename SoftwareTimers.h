@@ -33,7 +33,7 @@ public:
 class MicroSecondTimer : public Timer32 {
 public:
 	MicroSecondTimer() {};
-	MicroSecondTimer(uint32_t us) { set(us); };
+	MicroSecondTimer(uint32_t us) : Timer32(micros(), us) {};
 	
 	bool expired();
 	uint32_t remaining();
@@ -46,7 +46,7 @@ public:
 class MilliSecondTimer : public Timer32 {
 public:
 	MilliSecondTimer() {};
-	MilliSecondTimer(uint32_t ms) { set(ms); };
+	MilliSecondTimer(uint32_t ms) : Timer32(millis(), ms) {};
 	
 	bool expired();
 	uint32_t remaining();
@@ -60,6 +60,8 @@ class AckTimer : public MilliSecondTimer {
 protected:
 	bool armed;
 public:
+	AckTimer() {};
+	AckTimer(uint32_t ms) : MilliSecondTimer(ms) { armed = true; };
 	void disarm();
 	bool isArmed();
 	void set(uint32_t ms);
