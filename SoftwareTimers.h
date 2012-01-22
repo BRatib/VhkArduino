@@ -20,7 +20,7 @@ protected:
 	uint32_t delay; // The time the timer should wait.
 public:
 	Timer32() {};
-	Timer32(uint32_t duration, uint32_t now) { set(duration, now); };
+	Timer32(uint32_t now, uint32_t duration) { set(duration, now); };
 	
 	bool expired(uint32_t now);
 	uint32_t remaining(uint32_t now);
