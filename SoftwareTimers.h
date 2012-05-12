@@ -8,7 +8,7 @@
 #include <Arduino.h>
 #endif
 
-/**
+/*!
  * Class for timers with 32 bit unsigned integer space.
  * 
  * This class can use any kind of reference timer as long as you insert the right function on the now parameter.
@@ -27,7 +27,7 @@ public:
 	void set(uint32_t duration, uint32_t now);
 };
 
-/**
+/*!
  * This timer uses the Arduino micros() function as reference for Timer32.
  */
 class MicroSecondTimer : public Timer32 {
@@ -40,7 +40,7 @@ public:
 	void set(uint32_t us);
 };
 
-/**
+/*!
  * This timer uses the Arduino millis() function as reference for Timer32.
  */
 class MilliSecondTimer : public Timer32 {
@@ -53,7 +53,7 @@ public:
 	void set(uint32_t ms);
 };
 
-/**
+/*!
  * This timer is a MilliSecondTimer with specific functionality for ACK handling.
  */
 class AckTimer : public MilliSecondTimer {
