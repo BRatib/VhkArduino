@@ -2,7 +2,7 @@
 #include <VhkArduino.h>
 #include <util/atomic.h>
 
-#define SERIAL 1
+#define SERIAL 0
 #define NODEID 2
 
 #define RETRIES		5
@@ -218,8 +218,8 @@ void transmitReport() {
 }
 
 void setup() {
-	//myNodeID = rf12_config();
-	myNodeID = myNodeID = rf12_initialize(NODEID, RF12_868MHZ, 128);
+	myNodeID = rf12_config();
+	//myNodeID = rf12_initialize(NODEID, RF12_868MHZ, 128);
 	
 	#if SERIAL
 	Serial.begin(57600);
